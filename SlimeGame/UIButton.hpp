@@ -9,5 +9,6 @@ public:
 private:
 	RectangleShape rect;
 	bool isActive();
+	int x;
 };
 
