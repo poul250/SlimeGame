@@ -119,6 +119,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ButtonManager.cpp" />
+    <ClCompile Include="da.cpp" />
     <ClCompile Include="EmptyState.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
