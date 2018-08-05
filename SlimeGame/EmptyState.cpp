@@ -1,8 +1,8 @@
 #include "EmptyState.hpp"
-#include "Game.hpp"
+#include "Assets.hpp"
 
 EmptyState::EmptyState()
-	: rect(Vector2f(Game::getWidth(), Game::getHeight())) 
+	: rect(Vector2f(Assets::getWidth(), Assets::getHeight())) 
 { 
 	rect.setFillColor(Color::Black);
 	rect.setPosition(0, 0);

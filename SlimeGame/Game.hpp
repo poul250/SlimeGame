@@ -7,22 +7,19 @@ using namespace sf;
 
 class Game {
 public:
-	Game(VideoMode vMode, string title);
+	static Game * getGame(int width, int height, int scale, string title);
 	void start();
 	static void stop();
-
-	static int getWidth();
-	static int getHeight();
-	static string getTitle();
 private:
+	Game(int width, int height, int scale, string title);
+
 	void update();
 	void draw();
 
-	static int width;
-	static int height;
-	static string title;
-
 	static bool running;
+
+	static Game *instance;
 	RenderWindow window;
 	StateManager stateManager;
+	RenderStates renderStates;
 };

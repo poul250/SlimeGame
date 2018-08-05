@@ -22,17 +22,74 @@
     <Filter Include="Resource Files\fonts">
       <UniqueIdentifier>{fcc8b0a9-1b78-4bea-afda-afdcba9d822e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\UI">
-      <UniqueIdentifier>{798c9f57-fa99-4d91-bd7b-96275e04db2e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\UI">
-      <UniqueIdentifier>{7367e7c4-dceb-4102-baec-a39b35eb9520}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{e42a21f1-3c9b-4a1b-8d28-725998340488}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Entities">
       <UniqueIdentifier>{c9060d01-3ae1-4f71-948a-ad768fcbcb6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Buttons">
+      <UniqueIdentifier>{8be62c6c-a024-4a88-97f5-7e487a04af55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Buttons">
+      <UniqueIdentifier>{c1bc9ab1-f825-42ca-b04e-388afbab1378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\loc">
+      <UniqueIdentifier>{5259d234-a8e4-4f95-bc34-4c87fd380115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States\levels">
+      <UniqueIdentifier>{297b89e0-f1cc-45f7-94e2-9903637d9f2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States\levels">
+      <UniqueIdentifier>{ab018782-efb3-4d3b-892d-f35b375ac917}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities\Creatures">
+      <UniqueIdentifier>{6cd4e755-f347-427f-8c20-06358f19b817}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities\Creatures">
+      <UniqueIdentifier>{d924d1ec-797e-44a6-826d-3cd69750d324}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gfx">
+      <UniqueIdentifier>{2c996e03-1a96-4d52-b328-c81013e27794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gfx">
+      <UniqueIdentifier>{26457ec4-44c7-491c-b923-994e01878f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scripts">
+      <UniqueIdentifier>{bef09924-fcad-4871-8073-bf7e50a57fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scripts">
+      <UniqueIdentifier>{9feea8b1-db30-4472-957b-d7a3fcc404cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\textures">
+      <UniqueIdentifier>{be10d029-e96a-481b-9829-f954d46f4643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\music">
+      <UniqueIdentifier>{9f394a52-e09c-4933-99fa-21fc4438e96e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\camera">
+      <UniqueIdentifier>{1b4bbb7d-fd3d-48e0-a2a9-31ca9facf2ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\camera">
+      <UniqueIdentifier>{c7644813-7543-4fbf-b768-df6ef502cb22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scripts\keys">
+      <UniqueIdentifier>{878c7375-d923-4f00-ab02-5da68e44932c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\scripts\keys">
+      <UniqueIdentifier>{ea839b92-faf6-49b7-9fab-51b35d5f1253}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\interfaces">
+      <UniqueIdentifier>{b49e82fe-2ff9-4d3d-b136-8ff934623dfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interfaces">
+      <UniqueIdentifier>{2b5b68d3-ba0b-4365-b52c-db23130ac44a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gfx\dots">
+      <UniqueIdentifier>{ae1a5d16-9af5-4ebc-8c39-47785e0d0d13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gfx\dots">
+      <UniqueIdentifier>{e730434c-c4ec-4267-9663-c8d7a72303f6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -41,9 +98,6 @@
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="StateManager.cpp">
       <Filter>Source Files\States</Filter>
@@ -57,14 +111,71 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>Source Files\Entities\Buttons</Filter>
+    </ClCompile>
     <ClCompile Include="ButtonManager.cpp">
+      <Filter>Source Files\Entities\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorButton.cpp">
+      <Filter>Source Files\Entities\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="Assets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonFactory.cpp">
+      <Filter>Source Files\Entities\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Level1.cpp">
+      <Filter>Source Files\States\levels</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
       <Filter>Source Files\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="UIButton.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Entities\Creatures</Filter>
     </ClCompile>
-    <ClCompile Include="da.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Source Files\Entities\Creatures</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="Script.cpp">
+      <Filter>Source Files\scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyPressedScript.cpp">
+      <Filter>Source Files\scripts\keys</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyTypedScript.cpp">
+      <Filter>Source Files\scripts\keys</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptManager.cpp">
+      <Filter>Source Files\scripts</Filter>
+    </ClCompile>
+    <ClCompile Include="Controlable.cpp">
+      <Filter>Source Files\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="Controls.cpp">
+      <Filter>Source Files\interfaces</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadScreen.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureCreator.cpp">
+      <Filter>Source Files\gfx</Filter>
+    </ClCompile>
+    <ClCompile Include="DotsManager.cpp">
+      <Filter>Source Files\gfx\dots</Filter>
+    </ClCompile>
+    <ClCompile Include="Dot.cpp">
+      <Filter>Source Files\gfx\dots</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -89,16 +200,94 @@
     <ClInclude Include="Entity.hpp">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
+    <ClInclude Include="UIButton.hpp">
+      <Filter>Header Files\Entities\Buttons</Filter>
+    </ClInclude>
     <ClInclude Include="ButtonManager.hpp">
+      <Filter>Header Files\Entities\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorButton.hpp">
+      <Filter>Header Files\Entities\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="Assets.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonFactory.hpp">
+      <Filter>Header Files\Entities\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="Level1.hpp">
+      <Filter>Header Files\States\levels</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.hpp">
       <Filter>Header Files\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="UIButton.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Player.hpp">
+      <Filter>Header Files\Entities\Creatures</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.hpp">
+      <Filter>Header Files\Entities\Creatures</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.hpp">
+      <Filter>Header Files\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="Script.hpp">
+      <Filter>Header Files\scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.hpp">
+      <Filter>Header Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyPressedScript.hpp">
+      <Filter>Header Files\scripts\keys</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyTypedScript.hpp">
+      <Filter>Header Files\scripts\keys</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptManager.hpp">
+      <Filter>Header Files\scripts</Filter>
+    </ClInclude>
+    <ClInclude Include="Controlable.hpp">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Controls.hpp">
+      <Filter>Header Files\interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScreen.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureCreator.hpp">
+      <Filter>Header Files\gfx</Filter>
+    </ClInclude>
+    <ClInclude Include="DotsManager.hpp">
+      <Filter>Header Files\gfx\dots</Filter>
+    </ClInclude>
+    <ClInclude Include="Dot.hpp">
+      <Filter>Header Files\gfx\dots</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="font.ttf">
       <Filter>Resource Files\fonts</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="gotovo.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+    <Image Include="main_menu.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="menu.wav">
+      <Filter>Resource Files\music</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="vtoroyogg.ogg">
+      <Filter>Resource Files\music</Filter>
+    </None>
+    <None Include="menu.ogg">
+      <Filter>Resource Files\music</Filter>
+    </None>
   </ItemGroup>
 </Project>

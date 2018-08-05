@@ -1,14 +1,22 @@
 #pragma once
+#include <functional>
+#include <memory>
 #include <SFML/Graphics.hpp>
-#include "Entity.hpp"
-class UIButton : public Entity
+
+typedef std::function<void()> ButtonFunc;
+
+class UIButton : public sf::Drawable
 {
 public:
-	UIButton();
-	~UIButton();
+	UIButton(ButtonFunc);
+	virtual ~UIButton();
+	void setFunc(ButtonFunc);
+	ButtonFunc getFunc() const;
+	virtual void update() = 0;
+protected:
+	void execute();
 private:
-	RectangleShape rect;
-	bool isActive();
-	int x;
+	ButtonFunc func;
 };
 
+typedef std::shared_ptr<UIButton> UIButtonPtr;

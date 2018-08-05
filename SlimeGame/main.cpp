@@ -1,14 +1,10 @@
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "Game.hpp"
-
-using namespace std;
-using namespace sf;
 
 int main() 
 {
-	Game game(VideoMode(512, 360), "Slime");
-	game.start();
+	Game * game = Game::getGame(640, 360, 3, "Nori");
+	game->start();
 
 	return 0;
 }

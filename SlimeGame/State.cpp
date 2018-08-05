@@ -1,27 +1,49 @@
 #include "State.hpp"
 
-State::State(State *prev) 
-{
-	prevState = prev;
-	nextState = this;
-}
+State::State() 
+	: nextState(nullptr)
+	, stateCond(STATE_GOOD)
+{ }
+
 State::~State() 
 { }
-	
-void State::endState() 
-{
-	done = true;
-}
 
-void State::setNextState(State *state) 
+void State::init(int & progress)
 {
-	nextState = state;
+	progress = 100;
 }
 
 void State::enterState() 
-{
-	done = false;
-	nextState = this;
-}
+{ }
+
 void State::leaveState() 
 { }
+
+void State::setStateCond(StateCond cond, StatePtr next)
+{
+	stateCond = cond;
+	nextState = next;
+}
+
+void State::stayState()
+{
+	stateCond = STATE_GOOD;
+	nextState = nullptr;
+}
+
+void State::addState(StatePtr state)
+{
+	stateCond = ADD_STATE;
+	nextState = state;
+}
+
+void State::removeState()
+{
+	stateCond = REMOVE_STATE;
+}
+
+void State::replaceState(StatePtr state)
+{
+	stateCond = REPLACE_STATE;
+	nextState = state;
+}

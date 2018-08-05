@@ -1,33 +1,27 @@
 #pragma once
 #include <string>
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "State.hpp"
 #include "Entity.hpp"
+#include "ButtonManager.hpp"
+#include "Assets.hpp"
 
-using namespace std;
 using namespace sf;
-
-class MenuBackGround : public Drawable 
-{
-public:
-	MenuBackGround();
-	~MenuBackGround();
-	void update();
-protected:
-	void draw(RenderTarget& target, RenderStates states) const override;
-private:
-	RectangleShape rect;
-	Font font;
-	Text text;
-};
 
 class MainMenu : public State 
 {
 public:
-	MainMenu(State *prev);
+	MainMenu();
 	~MainMenu();
 	void update() override;
+
+	void enterState() override;
+	void leaveState() override;
 protected:
-	virtual void draw(RenderTarget & target, RenderStates states) const override;
+	void draw(RenderTarget & target, RenderStates states) const override;
 private:
-	MenuBackGround menuBG;
+	ButtonManager buttonManager;
+	RectangleShape bg;
+	Music music;
 };
