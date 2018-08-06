@@ -1,15 +1,8 @@
 #include "Dot.hpp"
 
-Dot::Dot(sf::Color color) :
-    sf::RectangleShape (
-        sf::Vector2f (
-            2,
-            2
-        )
-    ),
-    color (
-        color
-    )
+Dot::Dot(sf::Color color)
+    : RectangleShape(sf::Vector2f(2, 2))
+    , color(color)
 {
     reset();
     lifeTime = rand() % maxLifeTime;
