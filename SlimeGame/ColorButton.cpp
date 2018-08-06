@@ -29,7 +29,7 @@ bool ColorButton::mouseInRect() const
     auto size = rect.getSize();
     auto point = Mouse::getPosition(*Assets::getWindow());
     return point.x >= pos.x * scale && point.x <= pos.x * scale + size.x * scale &&
-        point.y >= pos.y * scale && point.y <= pos.y * scale + size.y * scale;
+           point.y >= pos.y * scale && point.y <= pos.y * scale + size.y * scale;
 }
 
 //Update states
