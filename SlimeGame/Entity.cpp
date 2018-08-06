@@ -1,10 +1,12 @@
 #include "Entity.hpp"
 
-Entity::Entity(FloatRect rect) 
-    : rect(rect)
-{ }
+Entity::Entity(FloatRect rect)
+    : RectangleShape(Vector2f(rect.width, rect.height))
+{
+    setPosition(rect.left, rect.top);
+}
 
-Entity::~Entity() 
+Entity::~Entity()
 { }
 
 bool Entity::isActive() const
@@ -12,12 +14,7 @@ bool Entity::isActive() const
     return active;
 }
 
-bool Entity::intersects(const Entity &another) const
+bool Entity::interactsWithEnv()
 {
-    return rect.intersects(another.rect);
-}
-
-FloatRect Entity::getRect() const
-{
-    return rect;
+    return false;
 }

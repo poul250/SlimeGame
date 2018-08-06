@@ -4,18 +4,15 @@
 
 using namespace sf;
 
-
-class Entity : public Drawable {
+class Entity : public RectangleShape {
 public:
     Entity(FloatRect rect = FloatRect(0, 0, 0, 0));
     virtual ~Entity();
     virtual void update() = 0;
 
     bool isActive() const;
-    virtual bool intersects(const Entity &another) const;
-    virtual FloatRect getRect() const;
+    virtual bool interactsWithEnv();
 protected:
-    FloatRect rect;
     bool active = true;
 };
 

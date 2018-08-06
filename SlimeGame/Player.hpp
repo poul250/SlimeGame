@@ -8,12 +8,8 @@ public:
     ~Player();
     void update() override;
 
-    void move(int dir) override;
+    void onMove(int dir) override;
     void jump() override;
-
-    FloatRect getRect() const override;
-protected:
-    void draw(RenderTarget &target, RenderStates states) const override;
 private:
     typedef void(Player::*UpdateFunc)();
 
@@ -22,10 +18,8 @@ private:
 
     Animation standAnim, leftAnim, rightAnim, jumpAnim;
     Animation *curAnimation;
-    RectangleShape rect;
     UpdateFunc updateFunc;
     float speed;
     float jumpForce;
     bool jumpFlag;
 };
-

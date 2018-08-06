@@ -113,7 +113,7 @@ void Camera::None()
 
 void Camera::ExpMoveToEntity()
 {
-    FloatRect rect = entity->getRect();
+    FloatRect rect = entity->getGlobalBounds();
     float newX = rect.left + rect.width / 2;
     float newY = rect.top + rect.height / 2;
     x = newX - (newX - x) * (exp(upds / 30) - 1) / exp(updsForMove / 30);
@@ -125,7 +125,7 @@ void Camera::ExpMoveToEntity()
 
 void Camera::CenterOnEntity()
 {
-    auto rect = entity->getRect();
+    auto rect = entity->getGlobalBounds();
     x = rect.left + rect.width / 2;
     y = rect.top + rect.height / 2;
 }

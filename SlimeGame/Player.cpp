@@ -9,14 +9,10 @@ Player::Player()
     , jumpAnim(Assets::jump, 10)
     , curAnimation(&standAnim)
     , jumpForce(13.0f)
-    , rect(Vector2f(64, 64))
     , speed(5.0f)
     , updateFunc(&Player::airUpdate)
-{ 
-    rect.setPosition(20, 10);
-    rect.setTexture(curAnimation->getTexture().get());
-    vx = 10;
-    vy = 10;
+{
+    setTexture(curAnimation->getTexture().get());
 }
 
 Player::~Player()
@@ -26,10 +22,10 @@ void Player::update()
 {
     (this->*updateFunc)();
     curAnimation->update();
-    rect.setTextureRect(curAnimation->getCurrRect());
+    setTextureRect(curAnimation->getCurrRect());
 }
 
-void Player::move(int dir)
+void Player::onMove(int dir)
 {
     vx = dir * speed;
 }
@@ -39,11 +35,6 @@ void Player::jump()
     jumpFlag = true;
 }
 
-void Player::draw(RenderTarget & target, RenderStates states) const
-{
-    target.draw(rect, states);
-}
-
 void Player::groundUpdate()
 {
     if (jumpFlag) {
@@ -51,26 +42,21 @@ void Player::groundUpdate()
         updateFunc = &Player::airUpdate;
     }
 
-    rect.setPosition(rect.getPosition().x + vx, rect.getPosition().y + vy);
+    setPosition(getPosition().x + vx, getPosition().y + vy);
     vx = 0;
 }
 
 void Player::airUpdate()
-{	
+{
     vy += Assets::gravity;
 
-    if (rect.getGlobalBounds().top + rect.getGlobalBounds().height + vy >= 296) {
+    if (getGlobalBounds().top + getGlobalBounds().height + vy >= 296) {
         updateFunc = &Player::groundUpdate;
-        rect.setPosition(rect.getPosition().x + vx, 232);
+        setPosition(getPosition().x + vx, 232);
         jumpFlag = false;
         vy = 0;
     } else {
-        rect.setPosition(rect.getPosition().x + vx, rect.getPosition().y + vy);
+        setPosition(getPosition().x + vx, getPosition().y + vy);
     }
     vx = 0;
-}
-
-FloatRect Player::getRect() const
-{
-    return rect.getGlobalBounds();
 }
