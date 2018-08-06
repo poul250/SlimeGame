@@ -1,35 +1,13 @@
 #include "Level1.hpp"
 
-Level1::Level1() :
-    bg(
-        Vector2f(
-            Assets::getWidth(),
-            Assets::getHeight()
-        )
-    ),
-    camera(
-        FloatRect(
-            0,
-            0,
-            Assets::getWidth(),
-            Assets::getHeight()
-        ),
-        Assets::getWindow(),
-        Assets::getScale()
-    ),
-    player1(
-        std::make_shared<Player>()
-    ),
-    player2(
-        std::make_shared<Player>()
-    ),
-    controls(
-        player1.get()
-    ),
-    dots(
-        &camera,
-        10
-    )
+Level1::Level1() 
+    : bg(Vector2f(Assets::getWidth(), Assets::getHeight()))
+    , camera(FloatRect(0, 0, Assets::getWidth(), Assets::getHeight()),
+             Assets::getWindow(), Assets::getScale())
+    , player1(std::make_shared<Player>())
+    , player2(std::make_shared<Player>())
+    , controls(player1.get())
+    , dots(&camera, 10)
 {
     bg.setTexture(Assets::textures["menuBG"].get());
 
