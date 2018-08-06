@@ -3,17 +3,17 @@
 
 class Script {
 public:
-	Script(std::function<void()>);
-	virtual ~Script();
-	virtual void update() = 0;
+    Script(std::function<void()>);
+    virtual ~Script();
+    virtual void update() = 0;
 
-	void setRepeatable(bool repeat);
-	bool isRepeatable() const;
+    void setRepeatable(bool repeat);
+    bool isRepeatable() const;
 protected:
-	void execute();
+    void execute();
 private:
-	bool repeatable;
-	bool executed;
-	std::function<void()> func;
+    bool repeatable;
+    bool executed;
+    std::function<void()> func;
 };
 

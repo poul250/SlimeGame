@@ -12,18 +12,18 @@
 class Level1 : public State
 {
 public:
-	Level1();
-	~Level1();
-	void update() override;
-	void init(int & progress) override;
+    Level1();
+    ~Level1();
+    void update() override;
+    void init(int & progress) override;
 protected:
-	void draw(RenderTarget & target, RenderStates states) const override;
+    void draw(RenderTarget & target, RenderStates states) const override;
 private:
-	RectangleShape bg;
-	EntityManager entManager;
+    RectangleShape bg;
+    EntityManager entManager;
 
-	std::shared_ptr<Player> player1, player2;
-	Controls controls;
-	Camera camera;
-	DotsManager dots;
+    std::shared_ptr<Player> player1, player2;
+    Controls controls;
+    Camera camera;
+    DotsManager dots;
 };

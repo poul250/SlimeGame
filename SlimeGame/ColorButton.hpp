@@ -8,28 +8,28 @@ using namespace sf;
 class ColorButton : public UIButton
 {
 public:
-	ColorButton(RectangleShape rect, ButtonFunc onClick);
-	virtual ~ColorButton();
-	virtual void update() override;
+    ColorButton(RectangleShape rect, ButtonFunc onClick);
+    virtual ~ColorButton();
+    virtual void update() override;
 protected:
-	virtual void draw(RenderTarget & target, RenderStates states) const override;
+    virtual void draw(RenderTarget & target, RenderStates states) const override;
 private:
-	typedef void(ColorButton::*UpdateFunc)();
-	typedef void(ColorButton::*DrawFunc)(RenderTarget&, RenderStates) const;
+    typedef void(ColorButton::*UpdateFunc)();
+    typedef void(ColorButton::*DrawFunc)(RenderTarget&, RenderStates) const;
 
-	bool mouseInRect() const;
+    bool mouseInRect() const;
 
-	void notActive();
-	void active();
-	void pressed();
+    void notActive();
+    void active();
+    void pressed();
 
-	void notActiveDraw(RenderTarget&, RenderStates) const;
-	void activeDraw(RenderTarget&, RenderStates) const;
-	void pressedDraw(RenderTarget&, RenderStates) const;
+    void notActiveDraw(RenderTarget&, RenderStates) const;
+    void activeDraw(RenderTarget&, RenderStates) const;
+    void pressedDraw(RenderTarget&, RenderStates) const;
 	
-	RectangleShape rect;
+    RectangleShape rect;
 
-	UpdateFunc updateFunc;
-	DrawFunc drawFunc;
+    UpdateFunc updateFunc;
+    DrawFunc drawFunc;
 };
 

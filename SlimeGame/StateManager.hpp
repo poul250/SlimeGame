@@ -7,13 +7,13 @@ using namespace sf;
 
 class StateManager : public Drawable {
 public:
-	StateManager();
-	~StateManager();
-	void addState(StatePtr state);
+    StateManager();
+    ~StateManager();
+    void addState(StatePtr state);
 
-	void update();
+    void update();
 protected:
-	void draw(RenderTarget& target, RenderStates renderStates) const override;
+    void draw(RenderTarget& target, RenderStates renderStates) const override;
 private:
-	std::stack<StatePtr> states;
+    std::stack<StatePtr> states;
 };

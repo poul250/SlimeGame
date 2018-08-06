@@ -3,13 +3,13 @@
 
 class EmptyState : public State {
 public:
-	EmptyState();
+    EmptyState();
 
-	void update() override;
+    void update() override;
 protected:
-	void draw(RenderTarget &target, RenderStates state) const override;
+    void draw(RenderTarget &target, RenderStates state) const override;
 private:
-	sf::RectangleShape rect;
+    sf::RectangleShape rect;
 };
 
 

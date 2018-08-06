@@ -4,8 +4,8 @@
 class ButtonFactory
 {
 public:
-	ButtonFactory();
-	~ButtonFactory();
-	UIButtonPtr create(RectangleShape rect, ButtonFunc func = [&]() {}) const;
+    ButtonFactory();
+    ~ButtonFactory();
+    UIButtonPtr create(RectangleShape rect, ButtonFunc func = [&]() {}) const;
 };
 

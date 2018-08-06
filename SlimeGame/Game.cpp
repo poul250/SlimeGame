@@ -9,78 +9,78 @@ Game *Game::instance;
 
 Game * Game::getGame(int width, int height, int scale, string title)
 {
-	if (!instance) {
-		instance = new Game(width, height, scale, title);
-	}
-	return instance;
+    if (!instance) {
+        instance = new Game(width, height, scale, title);
+    }
+    return instance;
 }
 
 Game::Game(int width, int height, int scale, string title) :
-	window (
-		VideoMode (
-			width * scale,
-			height * scale
-		), 
-		title, 
-		Style::Close,
-		ContextSettings(24, 0, 16)
-	)
+    window (
+        VideoMode (
+            width * scale,
+            height * scale
+        ), 
+        title, 
+        Style::Close,
+        ContextSettings(24, 0, 16)
+    )
 {
-	Assets::init(width, height, scale, &window);
-	window.setFramerateLimit(60);
-	auto settings = window.getSettings();
-	settings.antialiasingLevel = 2;
+    Assets::init(width, height, scale, &window);
+    window.setFramerateLimit(60);
+    auto settings = window.getSettings();
+    settings.antialiasingLevel = 2;
 	
-	renderStates.transform *= Transform().scale(Vector2f(3, 3));
-	stateManager.addState(std::make_shared<MainMenu>());
+    renderStates.transform *= Transform().scale(Vector2f(3, 3));
+    stateManager.addState(std::make_shared<MainMenu>());
 
-	instance = this;
+    instance = this;
 }
 
 void Game::start() 
 {
-	running = true;
+    running = true;
 	
-	sf::Time time;
-	sf::Clock clock;
-	int upd = 0;
-	while (running) {
-		time += clock.getElapsedTime();
-		clock.restart();
-		upd++;
-		while (time >= sf::seconds(1)) {
-			std::cout << "fps:" << upd << "\n";
-			time -= sf::seconds(1);
-			upd = 0;
+    sf::Time time;
+    sf::Clock clock;
+    int upd = 0;
+    while (running) {
+        time += clock.getElapsedTime();
+        clock.restart();
+        upd++;
+        while (time >= sf::seconds(1)) {
+            std::cout << "fps:" << upd << "\n";
+            time -= sf::seconds(1);
+            upd = 0;
 		}
 		
-		Event event;
-		while (window.pollEvent(event)) {
-			if (event.type == Event::Closed) {
-				running = false;
-			}
-		}
-		update();
-		draw();
-	}
-	if (window.isOpen()) {
-		window.close();
-	}
+    Event event;
+    while (window.pollEvent(event)) {
+        if (event.type == Event::Closed) {
+            running = false;
+        }
+    }
+    update();
+    draw();
+    }
+    if (window.isOpen()) {
+        window.close();
+    }
 }
 
 void Game::stop() 
 {
-	running = false;
+    running = false;
 }
 
 void Game::update() 
 {
-	stateManager.update();
+    stateManager.update();
 }
 
 void Game::draw() 
 {
-	window.clear(sf::Color::Black);
-	window.draw(stateManager, renderStates);
-	window.display();
+    window.clear(sf::Color::Black);
+    window.draw(stateManager, renderStates);
+    window.display();
 }

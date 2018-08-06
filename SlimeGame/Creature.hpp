@@ -5,11 +5,11 @@
 class Creature : public Entity
 {
 public:
-	Creature(FloatRect rect);
-	virtual ~Creature();
+    Creature(FloatRect rect);
+    virtual ~Creature();
 protected:
-	int health;
-	float vx, vy;
+    int health;
+    float vx, vy;
 };
 
 typedef std::shared_ptr<Creature> CreaturePtr;

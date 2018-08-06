@@ -1,7 +1,7 @@
 #include "Entity.hpp"
 
 Entity::Entity(FloatRect rect) 
-	: rect(rect)
+    : rect(rect)
 { }
 
 Entity::~Entity() 
@@ -9,15 +9,15 @@ Entity::~Entity()
 
 bool Entity::isActive() const
 {
-	return active;
+    return active;
 }
 
 bool Entity::intersects(const Entity &another) const
 {
-	return rect.intersects(another.rect);
+    return rect.intersects(another.rect);
 }
 
 FloatRect Entity::getRect() const
 {
-	return rect;
+    return rect;
 }

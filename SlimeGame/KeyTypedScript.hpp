@@ -5,20 +5,20 @@
 using sf::Keyboard;
 
 class KeyTypedScript :
-	public Script {
+    public Script {
 public:
-	KeyTypedScript(Keyboard::Key key, std::function<void()> func);
-	~KeyTypedScript();
+    KeyTypedScript(Keyboard::Key key, std::function<void()> func);
+    ~KeyTypedScript();
 
-	void update() override;
+    void update() override;
 private:
-	typedef void(KeyTypedScript::*UpdFunc)();
+    typedef void(KeyTypedScript::*UpdFunc)();
 
-	void Pressed();
-	void NotPressed();
+    void Pressed();
+    void NotPressed();
 
-	UpdFunc updFunc;
+    UpdFunc updFunc;
 
-	sf::Keyboard::Key key;
+    sf::Keyboard::Key key;
 };
 

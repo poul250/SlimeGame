@@ -8,15 +8,15 @@ typedef std::function<void()> ButtonFunc;
 class UIButton : public sf::Drawable
 {
 public:
-	UIButton(ButtonFunc);
-	virtual ~UIButton();
-	void setFunc(ButtonFunc);
-	ButtonFunc getFunc() const;
-	virtual void update() = 0;
+    UIButton(ButtonFunc);
+    virtual ~UIButton();
+    void setFunc(ButtonFunc);
+    ButtonFunc getFunc() const;
+    virtual void update() = 0;
 protected:
-	void execute();
+    void execute();
 private:
-	ButtonFunc func;
+    ButtonFunc func;
 };
 
 typedef std::shared_ptr<UIButton> UIButtonPtr;

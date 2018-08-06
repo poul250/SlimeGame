@@ -2,10 +2,10 @@
 #include "Assets.hpp"
 
 EmptyState::EmptyState()
-	: rect(Vector2f(Assets::getWidth(), Assets::getHeight())) 
+    : rect(Vector2f(Assets::getWidth(), Assets::getHeight())) 
 { 
-	rect.setFillColor(Color::Black);
-	rect.setPosition(0, 0);
+    rect.setFillColor(Color::Black);
+    rect.setPosition(0, 0);
 }
 	
 void EmptyState::update() 

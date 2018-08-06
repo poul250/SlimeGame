@@ -2,21 +2,21 @@
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
 class LoadScreen :
-	public State {
+    public State {
 public:
-	LoadScreen(std::shared_ptr<State> state);
-	~LoadScreen();
+    LoadScreen(std::shared_ptr<State> state);
+    ~LoadScreen();
 
-	void update() override;
-	void enterState() override;
+    void update() override;
+    void enterState() override;
 protected:
-	void draw(RenderTarget & target, RenderStates states) const override;
+    void draw(RenderTarget & target, RenderStates states) const override;
 private:
-	void init();
+    void init();
 
-	std::shared_ptr<State> state;
-	sf::Thread thread;
-	int progress = 0;
-	RectangleShape rect, progressRect, bg;
+    std::shared_ptr<State> state;
+    sf::Thread thread;
+    int progress = 0;
+    RectangleShape rect, progressRect, bg;
 };
 

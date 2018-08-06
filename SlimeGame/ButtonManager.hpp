@@ -8,16 +8,16 @@ using namespace sf;
 class ButtonManager : public Drawable
 {
 public:
-	ButtonManager();
-	~ButtonManager();
+    ButtonManager();
+    ~ButtonManager();
 
-	void addButton(UIButtonPtr button);
-	void removeButton(UIButtonPtr button);
+    void addButton(UIButtonPtr button);
+    void removeButton(UIButtonPtr button);
 
-	void update();
+    void update();
 protected:
-	void draw(RenderTarget& target, RenderStates states) const override;
+    void draw(RenderTarget& target, RenderStates states) const override;
 private:
-	std::vector<UIButtonPtr> buttons;
+    std::vector<UIButtonPtr> buttons;
 };
 

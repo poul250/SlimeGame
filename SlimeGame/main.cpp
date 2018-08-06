@@ -3,8 +3,8 @@
 
 int main() 
 {
-	Game * game = Game::getGame(640, 360, 3, "Nori");
-	game->start();
+    Game * game = Game::getGame(640, 360, 3, "Nori");
+    game->start();
 
-	return 0;
+    return 0;
 }

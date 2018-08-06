@@ -12,16 +12,16 @@ using namespace sf;
 class MainMenu : public State 
 {
 public:
-	MainMenu();
-	~MainMenu();
-	void update() override;
+    MainMenu();
+    ~MainMenu();
+    void update() override;
 
-	void enterState() override;
-	void leaveState() override;
+    void enterState() override;
+    void leaveState() override;
 protected:
-	void draw(RenderTarget & target, RenderStates states) const override;
+    void draw(RenderTarget & target, RenderStates states) const override;
 private:
-	ButtonManager buttonManager;
-	RectangleShape bg;
-	Music music;
+    ButtonManager buttonManager;
+    RectangleShape bg;
+    Music music;
 };

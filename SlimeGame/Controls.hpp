@@ -3,12 +3,12 @@
 #include "Controlable.hpp"
 class Controls {
 public:
-	Controls(Controlable * controlable);
-	virtual ~Controls();
+    Controls(Controlable * controlable);
+    virtual ~Controls();
 
-	void update();
-	void setControlable(Controlable * contr);
+    void update();
+    void setControlable(Controlable * contr);
 private:
-	Controlable * contr;
+    Controlable * contr;
 };
 

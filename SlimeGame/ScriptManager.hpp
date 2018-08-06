@@ -4,12 +4,12 @@
 #include "Script.hpp"
 class ScriptManager {
 public:
-	ScriptManager();
-	~ScriptManager();
+    ScriptManager();
+    ~ScriptManager();
 
-	void udpate();
-	void addScript(std::shared_ptr<Script> scr);
+    void udpate();
+    void addScript(std::shared_ptr<Script> scr);
 private:
-	std::list<std::shared_ptr<Script> > scripts;
+    std::list<std::shared_ptr<Script> > scripts;
 };
 
