@@ -4,6 +4,6 @@ public:
     Controlable();
     virtual ~Controlable();
 	
-    virtual void move(int dir) = 0;
+    virtual void onMove(int dir) = 0;
     virtual void jump() = 0;
 };
