@@ -14,7 +14,6 @@ public:
     virtual ~Camera();
     void update();
     void followEntity(Entity * entity);
-    void cleverFollowEntity(Entity * entity);
     void stopMove();
     void defaultView();
     void moveTo(Entity * entity);
