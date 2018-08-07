@@ -20,6 +20,7 @@ Player::~Player()
 
 void Player::update()
 {
+    updEntityStates();
     (this->*updateFunc)();
     curAnimation->update();
     setTextureRect(curAnimation->getCurrRect());
@@ -32,31 +33,32 @@ void Player::onMove(int dir)
 
 void Player::jump()
 {
-    jumpFlag = true;
+    if (updateFunc == &Player::groundUpdate) {
+        updateFunc = &Player::airUpdate;
+        vy = -jumpForce;
+    }
+}
+
+void Player::stand()
+{
+    updateFunc = &Player::groundUpdate;
+    vy = 0;
+}
+
+void Player::fall()
+{
+    updateFunc = &Player::airUpdate;
 }
 
 void Player::groundUpdate()
 {
-    if (jumpFlag) {
-        vy = -jumpForce;
-        updateFunc = &Player::airUpdate;
-    }
-
-    setPosition(getPosition().x + vx, getPosition().y + vy);
+    setPosition(getPosition().x + vx, getPosition().y);
     vx = 0;
 }
 
 void Player::airUpdate()
 {
     vy += Assets::gravity;
-
-    if (getGlobalBounds().top + getGlobalBounds().height + vy >= 296) {
-        updateFunc = &Player::groundUpdate;
-        setPosition(getPosition().x + vx, 232);
-        jumpFlag = false;
-        vy = 0;
-    } else {
-        setPosition(getPosition().x + vx, getPosition().y + vy);
-    }
+    setPosition(getPosition().x + vx, getPosition().y + vy);
     vx = 0;
 }

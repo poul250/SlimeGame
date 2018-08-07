@@ -10,7 +10,10 @@ public:
 
     void onMove(int dir) override;
     void jump() override;
-private:
+
+    void stand() override;
+    void fall() override;
+protected:
     typedef void(Player::*UpdateFunc)();
 
     void groundUpdate();
