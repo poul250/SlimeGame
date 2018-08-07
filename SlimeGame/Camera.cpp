@@ -91,6 +91,11 @@ void Camera::setOffset(float x, float y)
     offY = y;
 }
 
+void Camera::floatCamera()
+{
+    centerFunc = &Camera::FloatingCamera;
+}
+
 void Camera::FollowEntity()
 {
     int left = Keyboard::isKeyPressed(Keyboard::A);
@@ -132,7 +137,17 @@ void Camera::CenterOnEntity()
 
 void Camera::FloatingCamera()
 {
-    auto rect = entity->getGlobalBounds();
-    x = rect.left + rect.width / 2;
-    y = rect.top + rect.height / 2;
+    FloatRect rect = entity->getGlobalBounds();
+    Vector2f center(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    Vector2f rad = hiddenPoint - currPoint;
+    while (hypot(rad.x, rad.y) < 1) {
+        hiddenPoint = Vector2f(-MAX_DIST + rand() % (2 * MAX_DIST), -MAX_DIST + rand() % (2 * MAX_DIST));
+        rad = hiddenPoint - currPoint;
+    }
+    float hyp = hypot(rad.x, rad.y);
+    accel = Vector2f(rad.x / hyp, rad.y / hyp) / 1000.f;
+    pointSpeed += accel;
+    currPoint += pointSpeed;
+    x = center.x + currPoint.x;
+    y = center.y + currPoint.y;
 }

@@ -18,6 +18,7 @@ public:
     void defaultView();
     void moveTo(Entity * entity);
     void setOffset(float x, float y);
+    void floatCamera();
 
     void setTarget(RenderTarget * target);
     void setScale(int scale);
@@ -81,4 +82,13 @@ private:
     int moveDir = 0;
     const float maxShift = 20;
     const float shiftCoef = 0.85f;
+
+    //FloatingCamera
+    const int MAX_DIST = 10;
+    const float MAX_SPEED = 0.05;
+    Vector2f accel = Vector2f(0.f, 0.f);
+
+    Vector2f pointSpeed = Vector2f(0.f, 0.f);
+    Vector2f hiddenPoint = Vector2f(0.f, 0.f);
+    Vector2f currPoint = Vector2f(0.f, 0.f);
 };
