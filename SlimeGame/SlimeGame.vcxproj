@@ -132,6 +132,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="EnvManager.cpp" />
     <ClCompile Include="KeyPressedScript.cpp" />
     <ClCompile Include="KeyTypedScript.cpp" />
     <ClCompile Include="Level1.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="Entity.hpp" />
     <ClInclude Include="EntityManager.hpp" />
     <ClInclude Include="Game.hpp" />
+    <ClInclude Include="EnvManager.hpp" />
     <ClInclude Include="KeyPressedScript.hpp" />
     <ClInclude Include="KeyTypedScript.hpp" />
     <ClInclude Include="Level1.hpp" />

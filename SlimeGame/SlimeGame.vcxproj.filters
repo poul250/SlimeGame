@@ -91,6 +91,12 @@
     <Filter Include="Header Files\gfx\dots">
       <UniqueIdentifier>{e730434c-c4ec-4267-9663-c8d7a72303f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\physics">
+      <UniqueIdentifier>{441ac569-d890-40c0-9c5b-27b792409bc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\physics">
+      <UniqueIdentifier>{78fefc98-631b-42ef-9daf-807a0fb61db1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -177,6 +183,9 @@
     <ClCompile Include="Dot.cpp">
       <Filter>Source Files\gfx\dots</Filter>
     </ClCompile>
+    <ClCompile Include="EnvManager.cpp">
+      <Filter>Source Files\physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.hpp">
@@ -262,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="Dot.hpp">
       <Filter>Header Files\gfx\dots</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvManager.hpp">
+      <Filter>Header Files\physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

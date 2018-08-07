@@ -2,6 +2,7 @@
 #include <list>
 #include <SFML/Graphics.hpp>
 #include "Entity.hpp"
+#include "EnvManager.hpp"
 class EntityManager : public sf::Drawable
 {
 public:
@@ -16,5 +17,6 @@ protected:
     void draw(RenderTarget &target, RenderStates states) const override;
 private:
     std::list<std::shared_ptr<Entity> > entities;
+    EnvManager env;
 };
 
