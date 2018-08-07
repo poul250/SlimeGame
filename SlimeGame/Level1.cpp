@@ -12,7 +12,7 @@ Level1::Level1()
     bg.setTexture(Assets::textures["menuBG"].get());
 
     camera.followEntity(player1.get());
-    camera.setOffset(0, -118); 
+    camera.setOffset(0, /*-118*/ -80); 
 
     entManager.addEntity(player1);
     entManager.addEntity(player2);
