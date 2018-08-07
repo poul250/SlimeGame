@@ -12,7 +12,7 @@ Level1::Level1()
     bg.setTexture(Assets::textures["menuBG"].get());
 
     camera.followEntity(player1.get());
-    camera.setOffset(0, -80); 
+    camera.setOffset(0, -118); 
 
     entManager.addEntity(player1);
     entManager.addEntity(player2);
@@ -31,6 +31,7 @@ void Level1::update()
         controls.setControlable(player2.get());
         camera.moveTo(player2.get());
     }
+
     controls.update();
     entManager.update();
     camera.update();
