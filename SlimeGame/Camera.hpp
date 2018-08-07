@@ -43,6 +43,7 @@ private:
     //Center funcs
     void ExpMoveToEntity();
     void CenterOnEntity();
+    void FloatingCamera();
 
     //Clever follow funcs, that halps to the CleverFollowEntity funcs
 

@@ -129,3 +129,10 @@ void Camera::CenterOnEntity()
     x = rect.left + rect.width / 2;
     y = rect.top + rect.height / 2;
 }
+
+void Camera::FloatingCamera()
+{
+    auto rect = entity->getGlobalBounds();
+    x = rect.left + rect.width / 2;
+    y = rect.top + rect.height / 2;
+}
