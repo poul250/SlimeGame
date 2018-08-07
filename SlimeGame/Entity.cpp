@@ -16,5 +16,22 @@ bool Entity::isActive() const
 
 bool Entity::interactsWithEnv()
 {
-    return false;
+    return true;
 }
+
+void Entity::stand()
+{ }
+
+void Entity::fall()
+{ }
+
+FloatRect Entity::getPrevGlobalBounds() const
+{
+    return prevGlobalBounds;
+}
+
+void Entity::updEntityStates()
+{
+    prevGlobalBounds = getGlobalBounds();
+}
+
