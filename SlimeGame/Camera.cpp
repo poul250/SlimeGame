@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Camera.hpp"
 
 Camera::Camera(FloatRect rect, RenderTarget * target, int scale)
@@ -145,9 +146,10 @@ Vector2f Camera::FloatingCamera()
     FloatRect rect = entity->getGlobalBounds();
     Vector2f center(rect.left + rect.width / 2, rect.top + rect.height / 2);
     Vector2f rad = hiddenPoint - currPoint;
-    while (hypot(rad.x, rad.y) < 1) {
+    while (hypot(rad.x, rad.y) < 1 || existingTime <= 0) {
         hiddenPoint = Vector2f(-MAX_DIST + rand() % (2 * MAX_DIST), -MAX_DIST + rand() % (2 * MAX_DIST));
         rad = hiddenPoint - currPoint;
+        existingTime = MAX_EXISTING_TIME;
     }
     float hyp = hypot(rad.x, rad.y);
     accel = Vector2f(rad.x / hyp, rad.y / hyp) / 1000.f;
@@ -155,6 +157,7 @@ Vector2f Camera::FloatingCamera()
     pointSpeed.y = min(max(-MAX_SPEED, pointSpeed.y + accel.y), MAX_SPEED);
     currPoint += pointSpeed;
 
+    existingTime--;
     return center + currPoint;
 }
 

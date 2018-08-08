@@ -88,6 +88,8 @@ private:
     //FloatingCamera
     const int MAX_DIST = 10;
     const float MAX_SPEED = 0.1;
+    const int MAX_EXISTING_TIME = 300;
+    int existingTime = 0;
     Vector2f accel = Vector2f(0.f, 0.f);
 
     Vector2f pointSpeed = Vector2f(0.f, 0.f);
