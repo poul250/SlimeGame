@@ -40,7 +40,7 @@ private:
 
 	//Shift funcs
     void None();
-    void CleverFollowEntity();
+    void FollowEntity();
 
     //Action funcs
     void ExpMoveToEntity();
@@ -79,7 +79,7 @@ private:
     const int updsForMove = 60;
     float upds = 0;
 
-    //CleverFollowEntity
+    //FollowEntity
     int moveDir = 0;
     const float maxShift = 20;
     const float shiftCoef = 0.85f;

@@ -56,7 +56,7 @@ float Camera::getHeight() const
 void Camera::followEntity(Entity * entity)
 {
     this->entity = entity;
-    shiftFunc  = &Camera::CleverFollowEntity;
+    shiftFunc  = &Camera::FollowEntity;
     centerFunc = &Camera::CenterOnEntity;
     actionFunc = &Camera::Centering;
 }
@@ -96,7 +96,7 @@ void Camera::floatCamera()
     centerFunc = &Camera::FloatingCamera;
 }
 
-void Camera::CleverFollowEntity()
+void Camera::FollowEntity()
 {
     moveDir = -Keyboard::isKeyPressed(Keyboard::A) + Keyboard::isKeyPressed(Keyboard::D);
     float shX = moveDir * maxShift;
