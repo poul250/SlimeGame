@@ -5,7 +5,7 @@ Camera::Camera(FloatRect rect, RenderTarget * target, int scale)
     , target(target)
     , scale(scale)
     , shiftFunc(&Camera::None)
-    , centerFunc(&Camera::None)
+    , centerFunc(&Camera::MapCenter)
     , x(rect.width / 2)
     , y(rect.height / 2)
     , width(rect.width)
@@ -23,7 +23,7 @@ Camera::~Camera()
 
 void Camera::update()
 {
-    (this->*centerFunc)();
+    (this->*actionFunc)();
     (this->*shiftFunc)();
     setCenter((x + shiftX + offX) * scale, (y + shiftY + offY) * scale);
     target->setView(*this);
@@ -62,14 +62,15 @@ float Camera::getHeight() const
 void Camera::followEntity(Entity * entity)
 {
     this->entity = entity;
-    shiftFunc = &Camera::CleverFollowEntity;
+    shiftFunc  = &Camera::CleverFollowEntity;
     centerFunc = &Camera::CenterOnEntity;
+    actionFunc = &Camera::Centering;
 }
 
 void Camera::stopMove()
 {
     shiftFunc = &Camera::None;
-    centerFunc = &Camera::None;
+    actionFunc = &Camera::None;
 }
 
 void Camera::defaultView()
@@ -82,7 +83,7 @@ void Camera::moveTo(Entity * entity)
 {
     upds = updsForMove;
     this->entity = entity;
-    centerFunc = &Camera::ExpMoveToEntity;
+    actionFunc = &Camera::ExpMoveToEntity;
 }
 
 void Camera::setOffset(float x, float y)
@@ -118,24 +119,30 @@ void Camera::None()
 
 void Camera::ExpMoveToEntity()
 {
-    FloatRect rect = entity->getGlobalBounds();
-    float newX = rect.left + rect.width / 2;
-    float newY = rect.top + rect.height / 2;
+    Vector2f center = (this->*centerFunc)();
+    float newX = center.x;
+    float newY = center.y;
     x = newX - (newX - x) * (exp(upds / 30) - 1) / exp(updsForMove / 30);
     y = newY - (newY - y) * (exp(upds / 30) - 1) / exp(updsForMove / 30);
     if (--upds == 0) {
-        centerFunc = &Camera::CenterOnEntity;
+        actionFunc = &Camera::Centering;
     }
 }
 
-void Camera::CenterOnEntity()
+void Camera::Centering()
 {
-    auto rect = entity->getGlobalBounds();
-    x = rect.left + rect.width / 2;
-    y = rect.top + rect.height / 2;
+    auto center = (this->*centerFunc)();
+    x = center.x;
+    y = center.y;
 }
 
-void Camera::FloatingCamera()
+Vector2f Camera::CenterOnEntity()
+{
+    auto rect = entity->getGlobalBounds();
+    return Vector2f(rect.left + rect.width / 2, rect.top + rect.height / 2);
+}
+
+Vector2f Camera::FloatingCamera()
 {
     FloatRect rect = entity->getGlobalBounds();
     Vector2f center(rect.left + rect.width / 2, rect.top + rect.height / 2);
@@ -148,6 +155,10 @@ void Camera::FloatingCamera()
     accel = Vector2f(rad.x / hyp, rad.y / hyp) / 1000.f;
     pointSpeed += accel;
     currPoint += pointSpeed;
-    x = center.x + currPoint.x;
-    y = center.y + currPoint.y;
+    return center + currPoint;
+}
+
+Vector2f Camera::MapCenter()
+{
+    return Vector2f(width / 2, height / 2);
 }

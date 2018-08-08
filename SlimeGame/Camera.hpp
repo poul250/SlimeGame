@@ -31,24 +31,28 @@ public:
     float getHeight() const;
 private:
     typedef void(Camera::*ShiftFunc)();
-    typedef void(Camera::*CenterFunc)();
-    typedef void(Camera::*CleverFollowFunc)();
+    typedef void(Camera::*ActionFunc)();
+    typedef Vector2f(Camera::*CenterFunc)();
 
+    ActionFunc actionFunc;
     CenterFunc centerFunc;
     ShiftFunc shiftFunc;
+
     void None();
 
 	//Shift funcs
     void FollowEntity();
     void CleverFollowEntity();
 
-    //Center funcs
+    //Action funcs
     void ExpMoveToEntity();
-    void CenterOnEntity();
-    void FloatingCamera();
+    void Centering();
 
-    //Clever follow funcs, that halps to the CleverFollowEntity funcs
-
+    //Center funcs
+    Vector2f CenterOnEntity();
+    Vector2f FloatingCamera();
+    Vector2f MapCenter();
+    
     //Entity for centering
     Entity * entity;
 
