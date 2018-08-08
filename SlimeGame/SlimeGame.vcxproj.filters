@@ -288,6 +288,9 @@
     <Image Include="main_menu.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="slime_standing.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="menu.wav">

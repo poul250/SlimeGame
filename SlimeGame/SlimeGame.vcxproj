@@ -185,6 +185,7 @@
   <ItemGroup>
     <Image Include="gotovo.png" />
     <Image Include="main_menu.png" />
+    <Image Include="slime_standing.png" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="menu.wav" />

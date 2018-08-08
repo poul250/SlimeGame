@@ -2,8 +2,8 @@
 #include "Assets.hpp"
 
 Player::Player()
-    : Creature(FloatRect(50, 50, 60, 60))
-    , standAnim(Assets::stand, 10, Assets::textures["stand"])
+    : Creature(FloatRect(50, 50, 39, 19))
+    , standAnim(Assets::stand, 8, Assets::textures["stand"])
     , leftAnim(Assets::moveLeft, 10)
     , rightAnim(Assets::moveRight, 10)
     , jumpAnim(Assets::jump, 10)

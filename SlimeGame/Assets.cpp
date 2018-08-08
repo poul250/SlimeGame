@@ -23,15 +23,17 @@ void Assets::init(int width, int height, int scale, RenderWindow * window)
     Assets::fps = 60.0f;
 
     stand = {
-        IntRect(0, 0, 64, 64),
-        IntRect(64, 0, 64, 64),
-        IntRect(128, 0, 64, 64),
-        IntRect(192, 0, 64, 64)
+        IntRect(0,   1, 39, 19),
+        IntRect(36,  1, 39, 19),
+        IntRect(76,  1, 39, 19),
+        IntRect(122, 1, 39, 19),
+        IntRect(170, 1, 39, 19),
+        IntRect(212, 1, 39, 19)
 	};
 
     textures["stand"] = std::make_shared<Texture>();
     textures["menuBG"] = std::make_shared<Texture>();
-    if (!textures["stand"]->loadFromFile("gotovo.png") ||
+    if (!textures["stand" ]->loadFromFile("slime_standing.png") ||
         !textures["menuBG"]->loadFromFile("main_menu.png")) 
     {
         exit(-1);
