@@ -102,10 +102,16 @@ void Camera::floatCamera(bool floatingCamera)
 
 void Camera::FollowEntity()
 {
+    auto rect = entity->getGlobalBounds();
+    auto prev = entity->getPrevGlobalBounds();
     moveDir = -Keyboard::isKeyPressed(Keyboard::A) + Keyboard::isKeyPressed(Keyboard::D);
     float shX = moveDir * maxShift;
-
+    float shY = 2*(rect.top - prev.top);
     shift.x = shX - (shX - shift.x) * shiftCoef;
+    shift.y = shY - (shY - shift.y) * shiftCoef;
+    /*
+    auto rect = entity->getGlobalBounds();
+    auto prev = entity->getPrevGlobalBounds();*/
 }
 
 void Camera::None()

@@ -83,7 +83,7 @@ private:
     //FollowEntity
     int moveDir = 0;
     const float maxShift = 20;
-    const float shiftCoef = 0.85f;
+    const float shiftCoef = 0.90f;
 
     //FloatingCamera
     const int MAX_DIST = 10;
