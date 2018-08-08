@@ -6,8 +6,7 @@ Camera::Camera(FloatRect rect, RenderTarget * target, int scale)
     , scale(scale)
     , shiftFunc(&Camera::None)
     , centerFunc(&Camera::MapCenter)
-    , x(rect.width / 2)
-    , y(rect.height / 2)
+    , xy(rect.width / 2, rect.height / 2)
     , width(rect.width)
     , height(rect.height)
 { }
@@ -25,7 +24,7 @@ void Camera::update()
 {
     (this->*actionFunc)();
     (this->*shiftFunc)();
-    setCenter((x + shiftX + offX) * scale, (y + shiftY + offY) * scale);
+    setCenter((xy + shift + off) * float(scale));
     target->setView(*this);
 }
 
@@ -39,14 +38,9 @@ void Camera::setScale(int scale)
     this->scale = scale;
 }
 
-float Camera::getX() const
+Vector2f Camera::getCoords() const
 {
-    return x + shiftX + offX;
-}
-
-float Camera::getY() const
-{
-    return y + shiftY + offY;
+    return xy + shift + off;
 }
 
 float Camera::getWidth() const
@@ -88,8 +82,13 @@ void Camera::moveTo(Entity * entity)
 
 void Camera::setOffset(float x, float y)
 {
-    offX = x;
-    offY = y;
+    off.x = x;
+    off.y = y;
+}
+
+void Camera::setOffset(Vector2f off)
+{
+    this->off = off;
 }
 
 void Camera::floatCamera()
@@ -103,15 +102,15 @@ void Camera::FollowEntity()
     int right = Keyboard::isKeyPressed(Keyboard::D);
     int addX = 2 * (-left + right) + abs((left + right - 1)) * (-(count > 0) + (count < 0));
     count = std::max(-10, std::min(count + addX, 10));
-    shiftX = 20 * ((count >= 0) - (count < 0)) * (1 - exp(-pow(count, 2) / 30));
-    shiftY = 0;
+    shift = Vector2f(20 * ((count >= 0) - (count < 0)) * (1 - exp(-pow(count, 2) / 30)), 0);
 }
 
 void Camera::CleverFollowEntity()
 {
     moveDir = -Keyboard::isKeyPressed(Keyboard::A) + Keyboard::isKeyPressed(Keyboard::D);
     float shX = moveDir * maxShift;
-    shiftX = shX - (shX - shiftX) * shiftCoef;
+
+    shift.x = shX - (shX - shift.x) * shiftCoef;
 }
 
 void Camera::None()
@@ -122,8 +121,8 @@ void Camera::ExpMoveToEntity()
     Vector2f center = (this->*centerFunc)();
     float newX = center.x;
     float newY = center.y;
-    x = newX - (newX - x) * (exp(upds / 30) - 1) / exp(updsForMove / 30);
-    y = newY - (newY - y) * (exp(upds / 30) - 1) / exp(updsForMove / 30);
+    xy = Vector2f(newX - (newX - xy.x) * (exp(upds / 30) - 1) / exp(updsForMove / 30),
+                  newY - (newY - xy.y) * (exp(upds / 30) - 1) / exp(updsForMove / 30));
     if (--upds == 0) {
         actionFunc = &Camera::Centering;
     }
@@ -131,9 +130,7 @@ void Camera::ExpMoveToEntity()
 
 void Camera::Centering()
 {
-    auto center = (this->*centerFunc)();
-    x = center.x;
-    y = center.y;
+    xy = (this->*centerFunc)();
 }
 
 Vector2f Camera::CenterOnEntity()

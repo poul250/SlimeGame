@@ -19,14 +19,14 @@ public:
     void defaultView();
     void moveTo(Entity * entity);
     void setOffset(float x, float y);
+    void setOffset(Vector2f off);
     void floatCamera();
 
     void setTarget(RenderTarget * target);
     void setScale(int scale);
 
     //Getters
-    float getX() const;
-    float getY() const;
+    Vector2f getCoords() const;
     float getWidth() const;
     float getHeight() const;
 private:
@@ -63,18 +63,16 @@ private:
     int scale;
 
     //Center position
-    float x, y;
+    Vector2f xy;
 
     // Size
     float width, height;
 
     //Shift from center
-    float shiftX = 0;
-    float shiftY = 0;
+    Vector2f shift = Vector2f(0.f, 0.f);
 
     //Const Offset of cam
-    float offX = 0;
-    float offY = 0;
+    Vector2f off = Vector2f(0.f, 0.f);
 
     //Variables for some functions
 
