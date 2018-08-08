@@ -13,6 +13,7 @@ Level1::Level1()
 
     camera.followEntity(player1.get());
     camera.setOffset(0, /*-118*/ -80);
+    camera.floatCamera(true);
 
     entManager.addEntity(player1);
     entManager.addEntity(player2);
