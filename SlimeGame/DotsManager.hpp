@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include "Camera.hpp"
 #include "Dot.hpp"
+
 class DotsManager : public sf::Drawable {
 public:
     DotsManager(Camera * camera, int num = 0);
@@ -47,4 +48,3 @@ private:
     //Dots array
     vector<Dot> dots;
 };
-

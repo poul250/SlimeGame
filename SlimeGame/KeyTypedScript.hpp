@@ -4,8 +4,7 @@
 
 using sf::Keyboard;
 
-class KeyTypedScript :
-    public Script {
+class KeyTypedScript : public Script {
 public:
     KeyTypedScript(Keyboard::Key key, std::function<void()> func);
     ~KeyTypedScript();
@@ -21,4 +20,3 @@ private:
 
     sf::Keyboard::Key key;
 };
-

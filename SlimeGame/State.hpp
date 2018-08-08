@@ -35,4 +35,3 @@ private:
     StateCond stateCond;
     std::shared_ptr<State> nextState;
 };
-

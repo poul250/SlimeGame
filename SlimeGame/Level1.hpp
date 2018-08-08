@@ -9,6 +9,7 @@
 #include "Controls.hpp"
 #include "TextureCreator.hpp"
 #include "DotsManager.hpp"
+
 class Level1 : public State
 {
 public:

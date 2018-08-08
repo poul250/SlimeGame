@@ -32,4 +32,3 @@ private:
     UpdateFunc updateFunc;
     DrawFunc drawFunc;
 };
-

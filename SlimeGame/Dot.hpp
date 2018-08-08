@@ -25,4 +25,3 @@ private:
     bool dead = false;
     sf::Vector2f speed;
 };
-

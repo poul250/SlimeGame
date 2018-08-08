@@ -16,4 +16,3 @@ private:
     bool executed;
     std::function<void()> func;
 };
-

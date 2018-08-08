@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Script.hpp"
+
 class KeyPressedScript : public Script {
 public:
     KeyPressedScript(sf::Keyboard::Key key, std::function<void()> func);
@@ -13,4 +14,3 @@ public:
 private:
     sf::Keyboard::Key key;
 };
-

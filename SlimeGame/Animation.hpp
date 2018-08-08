@@ -2,6 +2,7 @@
 #include <vector>
 #include <memory>
 #include <SFML/Graphics.hpp>
+
 class Animation
 {
 public:
@@ -20,4 +21,3 @@ private:
     float updatesCount;
     float ticksForUpdate;
 };
-

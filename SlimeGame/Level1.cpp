@@ -1,6 +1,6 @@
 #include "Level1.hpp"
 
-Level1::Level1() 
+Level1::Level1()
     : bg(Vector2f(Assets::getWidth(), Assets::getHeight()))
     , camera(FloatRect(0, 0, Assets::getWidth(), Assets::getHeight()),
              Assets::getWindow(), Assets::getScale())
@@ -12,7 +12,7 @@ Level1::Level1()
     bg.setTexture(Assets::textures["menuBG"].get());
 
     camera.followEntity(player1.get());
-    camera.setOffset(0, /*-118*/ -80); 
+    camera.setOffset(0, /*-118*/ -80);
 
     entManager.addEntity(player1);
     entManager.addEntity(player2);

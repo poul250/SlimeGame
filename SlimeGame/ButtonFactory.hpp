@@ -1,6 +1,7 @@
 #pragma once
 #include "UIButton.hpp"
 #include "ColorButton.hpp"
+
 class ButtonFactory
 {
 public:
@@ -8,4 +9,3 @@ public:
     ~ButtonFactory();
     UIButtonPtr create(RectangleShape rect, ButtonFunc func = [&]() {}) const;
 };
-

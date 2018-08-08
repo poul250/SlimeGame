@@ -19,4 +19,3 @@ private:
     std::list<std::shared_ptr<Entity> > entities;
     EnvManager env;
 };
-

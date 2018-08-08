@@ -4,8 +4,10 @@
 #include <string>
 #include <memory>
 #include <SFML/Graphics.hpp>
+
 using namespace std;
 using namespace sf;
+
 class Assets {
 public:
     static void init(int width, int height, int scale, RenderWindow * window);

@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
-class LoadScreen :
-    public State {
+
+class LoadScreen : public State {
 public:
     LoadScreen(std::shared_ptr<State> state);
     ~LoadScreen();
@@ -19,4 +19,3 @@ private:
     int progress = 0;
     RectangleShape rect, progressRect, bg;
 };
-

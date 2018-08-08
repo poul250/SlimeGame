@@ -11,5 +11,3 @@ protected:
 private:
     sf::RectangleShape rect;
 };
-
-

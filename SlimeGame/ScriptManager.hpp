@@ -12,4 +12,3 @@ public:
 private:
     std::list<std::shared_ptr<Script> > scripts;
 };
-

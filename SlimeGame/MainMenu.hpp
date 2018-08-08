@@ -9,7 +9,7 @@
 
 using namespace sf;
 
-class MainMenu : public State 
+class MainMenu : public State
 {
 public:
     MainMenu();

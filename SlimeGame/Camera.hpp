@@ -4,9 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include "Assets.hpp"
 #include "Entity.hpp"
+
 using namespace sf;
 
-class Camera : public View{
+class Camera : public View {
 public:
     Camera(FloatRect rect, RenderTarget * target = nullptr, int scale = 1);
     Camera(RenderTarget * target = nullptr, int scale = 1);
