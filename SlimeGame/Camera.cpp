@@ -91,9 +91,13 @@ void Camera::setOffset(Vector2f off)
     this->off = off;
 }
 
-void Camera::floatCamera()
+void Camera::floatCamera(bool floatingCamera)
 {
-    centerFunc = &Camera::FloatingCamera;
+    if (floatingCamera) {
+        centerFunc = &Camera::FloatingCamera;
+    } else {
+        centerFunc = &Camera::CenterOnEntity;
+    }
 }
 
 void Camera::FollowEntity()

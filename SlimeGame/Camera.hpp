@@ -17,10 +17,11 @@ public:
     void followEntity(Entity * entity);
     void stopMove();
     void defaultView();
+    void floatCamera(bool floatingCamera);
     void moveTo(Entity * entity);
+
     void setOffset(float x, float y);
     void setOffset(Vector2f off);
-    void floatCamera();
 
     void setTarget(RenderTarget * target);
     void setScale(int scale);
