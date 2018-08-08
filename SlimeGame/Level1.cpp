@@ -1,7 +1,8 @@
+#include <iostream>
 #include "Level1.hpp"
 
 Level1::Level1()
-    : bg(Vector2f(Assets::getWidth(), Assets::getHeight()))
+    : bg(Vector2f(823, 180))
     , camera(FloatRect(0, 0, Assets::getWidth(), Assets::getHeight()),
              Assets::getWindow(), Assets::getScale())
     , player1(std::make_shared<Player>())
@@ -9,7 +10,7 @@ Level1::Level1()
     , controls(player1.get())
     , dots(&camera, 10)
 {
-    bg.setTexture(Assets::textures["menuBG"].get());
+    player1->setScale(Vector2f(1.5f, 1.5f));
 
     camera.followEntity(player1.get());
     camera.setOffset(0, /*-118*/ -80);
@@ -41,6 +42,13 @@ void Level1::update()
 
 void Level1::init(int & progress)
 {
+    bgTexture = make_shared<Texture>();
+    if (!bgTexture->loadFromFile("background_1.png")) {
+        std::cout << "Error reading \"background_1.png\" texture" << std::endl;
+        exit(-1);
+    }
+    bg.setTexture(bgTexture.get());
+    bg.setSize(Vector2f(1646.f, 360));
     progress = 100;
 }
 

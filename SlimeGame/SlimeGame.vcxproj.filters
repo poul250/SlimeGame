@@ -291,6 +291,9 @@
     <Image Include="slime_standing.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="background_1.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="menu.wav">

@@ -27,4 +27,5 @@ private:
     Controls controls;
     Camera camera;
     DotsManager dots;
+    shared_ptr<Texture> bgTexture;
 };

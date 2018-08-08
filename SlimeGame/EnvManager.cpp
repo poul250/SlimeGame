@@ -1,16 +1,15 @@
 #include <iostream>
 #include "EnvManager.hpp"
 
-
 EnvManager::EnvManager()
-    : gz(0.f, 0.f, 640.f, 330.f)
+    : gz(0.f, 0.f, 1646.f, 300.f)
 {
     objects = { FloatRect(gz.left - 100,       gz.top - 100.f,      gz.width + 200.f,  100.f),
                 FloatRect(gz.left - 100.f,     gz.top + gz.height,  gz.width + 200.f,  100.f),
                 FloatRect(gz.left - 100.f,     gz.top - 100.f,      100.f,             gz.height + 200.f),
                 FloatRect(gz.left + gz.width,  -100.f,              100.f,             gz.height + 200.f),
     };
-    objects.push_back(FloatRect(300.f, 300.f, 100.f, 250.f));
+    objects.push_back(FloatRect(300.f, 270.f, 100.f, 250.f));
 }
 
 EnvManager::~EnvManager()

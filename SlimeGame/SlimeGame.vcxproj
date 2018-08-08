@@ -183,6 +183,7 @@
     <Font Include="font.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="background_1.png" />
     <Image Include="gotovo.png" />
     <Image Include="main_menu.png" />
     <Image Include="slime_standing.png" />

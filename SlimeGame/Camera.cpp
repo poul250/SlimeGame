@@ -151,8 +151,10 @@ Vector2f Camera::FloatingCamera()
     }
     float hyp = hypot(rad.x, rad.y);
     accel = Vector2f(rad.x / hyp, rad.y / hyp) / 1000.f;
-    pointSpeed += accel;
+    pointSpeed.x = min(max(-MAX_SPEED, pointSpeed.x + accel.x), MAX_SPEED);
+    pointSpeed.y = min(max(-MAX_SPEED, pointSpeed.y + accel.y), MAX_SPEED);
     currPoint += pointSpeed;
+
     return center + currPoint;
 }
 

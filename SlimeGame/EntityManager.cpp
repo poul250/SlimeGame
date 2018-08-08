@@ -39,7 +39,7 @@ void EntityManager::draw(RenderTarget & target, RenderStates states) const
         target.draw(*ent, states);
     }
     RectangleShape shape(Vector2f(100.f, 250.f));
-    shape.setPosition(300, 300);
+    shape.setPosition(300, 270);
     shape.setFillColor(Color(255, 0, 0, 50));
     target.draw(shape, states);
 }
