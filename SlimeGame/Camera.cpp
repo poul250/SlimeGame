@@ -96,15 +96,6 @@ void Camera::floatCamera()
     centerFunc = &Camera::FloatingCamera;
 }
 
-void Camera::FollowEntity()
-{
-    int left = Keyboard::isKeyPressed(Keyboard::A);
-    int right = Keyboard::isKeyPressed(Keyboard::D);
-    int addX = 2 * (-left + right) + abs((left + right - 1)) * (-(count > 0) + (count < 0));
-    count = std::max(-10, std::min(count + addX, 10));
-    shift = Vector2f(20 * ((count >= 0) - (count < 0)) * (1 - exp(-pow(count, 2) / 30)), 0);
-}
-
 void Camera::CleverFollowEntity()
 {
     moveDir = -Keyboard::isKeyPressed(Keyboard::A) + Keyboard::isKeyPressed(Keyboard::D);

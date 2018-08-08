@@ -38,10 +38,8 @@ private:
     CenterFunc centerFunc;
     ShiftFunc shiftFunc;
 
-    void None();
-
 	//Shift funcs
-    void FollowEntity();
+    void None();
     void CleverFollowEntity();
 
     //Action funcs
