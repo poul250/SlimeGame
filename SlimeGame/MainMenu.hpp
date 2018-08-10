@@ -21,7 +21,16 @@ public:
 protected:
     void draw(RenderTarget & target, RenderStates states) const override;
 private:
+    typedef void (MainMenu::*UpdateFunc)();
+
+    void CommonUpdate();
+    void LeaveStateUpdate();
+
+    UpdateFunc updateFunc;
     ButtonManager buttonManager;
     RectangleShape bg;
     Music music;
+
+    RectangleShape rect;
+    int step = 0;
 };
