@@ -16,14 +16,17 @@ public:
     ~MainMenu();
     void update() override;
 
+    void lostFocus() override;
+    void gainedFocus() override;
+
     void enterState() override;
-    void leaveState() override;
 protected:
     void draw(RenderTarget & target, RenderStates states) const override;
 private:
     typedef void (MainMenu::*UpdateFunc)();
 
     void CommonUpdate();
+    void NotFocused();
     void LeaveStateUpdate();
 
     UpdateFunc updateFunc;

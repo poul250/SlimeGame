@@ -15,16 +15,8 @@ Game * Game::getGame(int width, int height, int scale, string title)
     return instance;
 }
 
-Game::Game(int width, int height, int scale, string title) :
-    window (
-        VideoMode (
-            width * scale,
-            height * scale
-        ), 
-        title, 
-        Style::Close,
-        ContextSettings(24, 0, 16)
-    )
+Game::Game(int width, int height, int scale, string title) 
+    : window(VideoMode(width * scale, height * scale), title, Style::Close, ContextSettings(24, 0, 16))
 {
     Assets::init(width, height, scale, &window);
     window.setFramerateLimit(60);
@@ -54,14 +46,22 @@ void Game::start()
             upd = 0;
 		}
 		
-    Event event;
-    while (window.pollEvent(event)) {
-        if (event.type == Event::Closed) {
-            running = false;
+        Event event;
+        while (window.pollEvent(event)) {
+            switch (event.type) {
+            case Event::Closed:
+                running = false;
+                break;
+            case Event::LostFocus:
+                stateManager.lostFocus();
+                break;
+            case Event::GainedFocus:
+                stateManager.gainedFocus();
+                break;
+            }
         }
-    }
-    update();
-    draw();
+        update();
+        draw();
     }
     if (window.isOpen()) {
         window.close();

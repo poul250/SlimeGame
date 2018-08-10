@@ -13,6 +13,12 @@ void State::init(int & progress)
     progress = 100;
 }
 
+void State::lostFocus()
+{ }
+
+void State::gainedFocus()
+{ }
+
 void State::enterState() 
 { }
 

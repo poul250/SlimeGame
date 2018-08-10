@@ -50,13 +50,24 @@ void MainMenu::update()
     (this->*updateFunc)();
 }
 
-void MainMenu::enterState()
+void MainMenu::lostFocus()
 {
-    music.play();
+    if (updateFunc == &MainMenu::CommonUpdate) {
+        updateFunc = &MainMenu::NotFocused;
+    }
 }
 
-void MainMenu::leaveState()
+void MainMenu::gainedFocus()
 {
+    if (updateFunc == &MainMenu::NotFocused) {
+        updateFunc = &MainMenu::CommonUpdate;
+    }
+}
+
+void MainMenu::enterState()
+{
+    updateFunc = &MainMenu::CommonUpdate;
+    music.play();
 }
 
 void MainMenu::draw(RenderTarget & target, RenderStates states) const
@@ -70,6 +81,9 @@ void MainMenu::CommonUpdate()
 {
     buttonManager.update();
 }
+
+void MainMenu::NotFocused()
+{ }
 
 void MainMenu::LeaveStateUpdate()
 {

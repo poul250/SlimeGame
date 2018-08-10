@@ -22,6 +22,9 @@ public:
     virtual void update() = 0;
     virtual void init(int & progress);
 
+    virtual void lostFocus();
+    virtual void gainedFocus();
+
     virtual void enterState();
     virtual void leaveState();
 protected:

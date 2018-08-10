@@ -11,6 +11,9 @@ public:
     ~StateManager();
     void addState(StatePtr state);
 
+    void lostFocus();
+    void gainedFocus();
+
     void update();
 protected:
     void draw(RenderTarget& target, RenderStates renderStates) const override;

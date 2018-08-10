@@ -13,6 +13,16 @@ void StateManager::addState(StatePtr state)
     state->enterState();
 }
 
+void StateManager::lostFocus()
+{
+    states.top()->lostFocus();
+}
+
+void StateManager::gainedFocus()
+{
+    states.top()->gainedFocus();
+}
+
 void StateManager::update() 
 {
     states.top()->update();
