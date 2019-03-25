@@ -44,7 +44,7 @@ void Game::start()
             std::cout << "fps:" << upd << "\n";
             time -= sf::seconds(1);
             upd = 0;
-		}
+	}
 		
         Event event;
         while (window.pollEvent(event)) {
